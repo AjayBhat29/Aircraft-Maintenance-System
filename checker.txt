@@ -1,0 +1,34 @@
+void checker(struct queue* q,struct queue* q1,struct queue* q2)
+{
+	
+	if(q->front==NULL)
+		printf("\n the Queue is empty!! \n");
+	else
+	{
+		struct node* temp=q->front;
+		while(temp!=NULL)
+		{
+				printf("\n Name of the Country : %s\n",temp->CountryName);
+				printf("\n Estimated Budget : %.3f\n",temp->estimated_budget);
+				printf("\n Finalized Budget : %.3f\n",temp->sealed_budget);
+				printf("\n Name of Aircraft : %s\n",temp->Aircraft_Name);
+				printf("\n Estimated year of delivery : %d\n",temp->delivery_date);
+			printf("\n\n Has the above contract been completed ? ( Y / N )  ");
+				char yn;
+			scanf(" %c",&yn);
+			if(yn=='y' || yn=='Y')
+			{
+				QueueEnqueue(temp,q1);
+				Dequeue(q);
+				printf("\n Contract has been completed !!\n");
+			}
+			else if(yn=='n' || yn=='N')
+			{
+				QueueEnqueue(temp,q2);
+				Dequeue(q);
+				printf("\n Contract has not been completed !!\n");
+			}
+			temp=temp->next;
+		}
+	}
+}

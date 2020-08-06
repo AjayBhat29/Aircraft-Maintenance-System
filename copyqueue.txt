@@ -1,0 +1,29 @@
+void CopyQueue(struct queue* q1,struct queue* q2)
+{
+	struct node* p=q1->front;
+	while(p!=NULL)
+	{
+		struct node* newNode;
+		newNode=(struct node*)malloc(sizeof(struct node));
+		newNode->next=NULL;
+		strcpy(newNode->CountryName,p->CountryName);
+		newNode->estimated_budget=p->estimated_budget;
+		newNode->sealed_budget=p->sealed_budget;
+		strcpy(newNode->Aircraft_Name,p->Aircraft_Name);
+		newNode->no_of_years=p->no_of_years;
+		newNode->Priority_Delivery=p->Priority_Delivery;
+		strcpy(newNode->signing_date,p->signing_date);
+		newNode->delivery_date=p->delivery_date;
+		if(q2->front==NULL && q2->rear==NULL)
+		{
+			q2->front=newNode;
+			q2->rear=newNode;
+		}
+		else
+		{
+			q2->rear->next=newNode;
+			q2->rear=newNode;
+		}
+		p=p->next;
+	}
+}

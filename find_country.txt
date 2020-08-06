@@ -1,0 +1,21 @@
+void find_country(char country_name[],struct queue* q)
+{
+	if(q->front==NULL)
+		printf("\n the Queue is empty");
+	else
+	{
+		struct node* temp=q->front;
+		while(temp!=NULL)
+		{
+			if(strcmp(country_name,temp->CountryName)==0)
+			{
+				printf("\n Name of the Country : %s\n",temp->CountryName);
+				printf("\n Estimated Budget : %.3f\n",temp->estimated_budget);
+				printf("\n Finalized Budget : %.3f\n",temp->sealed_budget);
+				printf("\n Name of Aircraft : %s\n",temp->Aircraft_Name);
+				printf("\n Estimated year of delivery : %d\n",temp->delivery_date);
+			}
+			temp=temp->next;
+		}
+	}	
+}

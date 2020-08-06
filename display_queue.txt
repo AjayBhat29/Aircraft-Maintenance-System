@@ -1,0 +1,22 @@
+void Display_Queue(struct queue* q)
+{
+	if(q->front==NULL)
+		printf("\n the Queue is empty!! \n");
+	else
+	{
+		struct node* temp=q->front;
+		int c=1;
+		while(temp!=NULL)
+		{
+			printf("\n=>Customer-%d details\n",c);
+			printf("\n Name of the Country : %s\n",temp->CountryName);
+			printf("\n Estimated Budget : %.3f\n",temp->estimated_budget);
+			printf("\n Finalized Budget : %.3f\n",temp->sealed_budget);
+			printf("\n Name of Aircraft : %s\n",temp->Aircraft_Name);
+			printf("\n Estimated year of delivery : %d\n",temp->delivery_date);
+			printf("\n");
+			temp=temp->next;
+			c++;
+		}
+	}
+}

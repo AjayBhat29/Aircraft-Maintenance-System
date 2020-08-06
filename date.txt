@@ -1,0 +1,22 @@
+//structure to store the current day,month,year
+struct Date
+{
+	int day;
+	int month;
+	int year;
+};
+//function to get current date and time
+void getCurrentDate(struct Date *d)
+{
+	time_t t=time(NULL);
+	struct tm tm=*localtime(&t);
+	d->day=tm.tm_mday;
+	d->month=tm.tm_mon+1;
+	d->year=tm.tm_year+1900;
+}
+//function to display the current date from the system
+void displayDate(struct Date *d)
+{
+	printf("\n( DD MM YYYY ) : ");
+	printf("%d %d %d",d->day,d->month,d->year);
+}

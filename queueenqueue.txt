@@ -1,0 +1,25 @@
+void QueueEnqueue(struct node* p ,struct queue* q1)
+{
+	struct node* newNode;
+	newNode=(struct node*)malloc(sizeof(struct node));
+	newNode->next=NULL;
+	strcpy(newNode->CountryName,p->CountryName);
+	newNode->estimated_budget=p->estimated_budget;
+	newNode->sealed_budget=p->sealed_budget;
+	strcpy(newNode->Aircraft_Name,p->Aircraft_Name);
+	newNode->no_of_years=p->no_of_years;
+	newNode->Priority_Delivery=p->Priority_Delivery;
+	strcpy(newNode->signing_date,p->signing_date);
+	newNode->delivery_date=p->delivery_date;
+	if(q1->front==NULL && q1->rear==NULL)
+	{
+		q1->front=newNode;
+		q1->rear=newNode;
+	}
+	else
+	{
+		q1->rear->next=newNode;
+		q1->rear=newNode;
+	}
+
+}

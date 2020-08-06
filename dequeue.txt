@@ -1,0 +1,11 @@
+void Dequeue(struct queue* q)
+{
+	if(q->front==NULL)
+		printf("\n Queue is empty !\n");
+	else
+	{
+		struct node* temp=q->front;
+		q->front=q->front->next;
+		free(temp);
+	}
+}

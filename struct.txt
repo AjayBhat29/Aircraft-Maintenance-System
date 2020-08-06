@@ -1,0 +1,18 @@
+struct node
+{
+	char CountryName[30];
+	float estimated_budget;
+	float sealed_budget;//official records have been signed for
+	char Aircraft_Name[30];
+	int no_of_years;
+	char Priority_Delivery;
+	char signing_date[12];
+	int delivery_date;
+	struct node* next;
+};
+
+struct queue
+{
+	struct node* front;
+	struct node* rear;
+};

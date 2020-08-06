@@ -1,0 +1,33 @@
+void enter_data(struct queue *q)
+{
+	printf("\n Enter name of the Country : ");
+	char country_name[30];
+	scanf(" %[^\n]",country_name);
+	printf("\n Enter the estimated budget proposed to the party : ");
+	float est_bud;
+	scanf("%f",&est_bud);
+	printf("\n Has the client applied for Priority production ? ( Y / N ) ");
+	char Priority;
+	scanf(" %c",&Priority);
+	float seal_bud;
+	if(Priority=='y' || Priority=='Y')
+	{
+		seal_bud=est_bud*1.3;
+	}	
+	else
+		seal_bud=est_bud;
+	printf("\n Enter the name of Aircraft : ");
+	char Air_Name[30];
+	scanf(" %[^\n]",Air_Name);
+	printf("\n Enter the Date Of Finalizing Contract (DD/MM/YYYY) : ");
+	char sign_dat[12];
+	scanf(" %[^\n]",sign_dat);
+	printf("\n Enter the number of years it might take for completion of proposal : ");
+	int no_of_y;
+	scanf("%d",&no_of_y);
+	if(Priority=='y' || Priority=='Y')
+	{
+		no_of_y=(int)no_of_y*0.8;
+	}
+	Enqueue(country_name,est_bud,seal_bud,Air_Name,no_of_y,Priority,sign_dat,q);
+}

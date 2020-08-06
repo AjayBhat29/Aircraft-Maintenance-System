@@ -1,0 +1,24 @@
+void Enqueue(char country_name[],float est_bud,float seal_bud,char Air_Name[],int no_of_y,char Priority,char sign_dat[],struct queue* q)
+{	
+	struct node* newNode;
+	newNode=(struct node*)malloc(sizeof(struct node));
+	newNode->next=NULL;
+	strcpy(newNode->CountryName,country_name);
+	newNode->estimated_budget=est_bud;
+	newNode->sealed_budget=seal_bud;
+	strcpy(newNode->Aircraft_Name,Air_Name);
+	newNode->no_of_years=no_of_y;
+	newNode->Priority_Delivery=Priority;
+	strcpy(newNode->signing_date,sign_dat);
+	newNode->delivery_date=((newNode->signing_date[strlen(sign_dat)-4]-48)*1000)+((newNode->signing_date[strlen(sign_dat)-3]-48)*100)+((newNode->signing_date[strlen(sign_dat)-2]-48)*10)+((newNode->signing_date[strlen(sign_dat)-1]-48)*1)+newNode->no_of_years;
+	if(q->front==NULL && q->rear==NULL)
+	{
+		q->front=newNode;
+		q->rear=newNode;
+	}
+	else
+	{
+		q->rear->next=newNode;
+		q->rear=newNode;
+	}
+}

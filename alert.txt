@@ -1,0 +1,21 @@
+void alert(struct queue* q,struct Date* d)
+{
+	if(q->front==NULL)
+		printf("\n the Queue is empty");
+	else
+	{
+		struct node* temp=q->front;
+		while(temp!=NULL)
+		{
+			if(temp->delivery_date<d->year)
+			{
+				printf("\n !!! Country : %s",temp->CountryName);
+				printf(" contract pending !!");
+				printf("\nDelivery date year was : %d",temp->delivery_date);
+				printf("\n\n");
+			}			
+			temp=temp->next;
+		}
+	}	
+
+}
